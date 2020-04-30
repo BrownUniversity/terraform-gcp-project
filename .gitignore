@@ -1,3 +1,9 @@
+#VSCode
+.DS_Store
+
+#variables used in the tests
+examples/terraform.tfvars
+
 # Local .terraform directories
 **/.terraform/*
 
