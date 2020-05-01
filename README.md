@@ -45,3 +45,9 @@ bundle install
 You'll need to add some common credentials. Copy the `examples/shared/terraform.tfvars.example` to `examples/shared/terraform.tfvars` and run the commands in the file to find the billing account id and the organization id.
 
 And now you're ready to run test kitchen. Test kitchen has a couple main commands. `bundle exec kitchen create` initializes terraform. `bundle exec kitchen converge` runs our terraform examples. `bundle exec kitchen verify` runs our inspec scripts against a converged kitchen. `bundle exec kitchen test` does all the above.
+
+### Developer note:
+
+For generating the Inspec profile, you can install Inspec and then run
+
+`inspec init profile --platform gcp tests`

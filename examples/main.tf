@@ -4,7 +4,7 @@
 # ----------------------------------------------------------------------------
 locals {
   project_name = "inspec-project"
-  active_apis = [
+  activate_apis = [
     "compute.googleapis.com",
   ]
 }
