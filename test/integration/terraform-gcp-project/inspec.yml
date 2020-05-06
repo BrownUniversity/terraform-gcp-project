@@ -1,8 +1,7 @@
-name: tests
+name: terraform-gcp-project
 title: GCP InSpec Profile
-maintainer: The Authors
-copyright: The Authors
-copyright_email: you@example.com
+maintainer: Brown CIS
+copyright: Brown University
 license: MIT
 summary: An InSpec Compliance Profile For GCP
 version: 0.1.0
@@ -34,6 +33,7 @@ attributes:
   #   type: string
 depends:
   - name: inspec-gcp
-    url: https://github.com/inspec/inspec-gcp/archive/master.tar.gz
+    git: https://github.com/inspec/inspec-gcp.git
+    tag: v1.4.0
 supports:
   - platform: gcp

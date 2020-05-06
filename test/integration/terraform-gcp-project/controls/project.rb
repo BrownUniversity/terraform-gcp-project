@@ -2,18 +2,21 @@
 
 title "Test creation of GCP Project"
 
-gcp_project_id = attribute("project_id")
-service_account_email = attribute("service_account_email")
+project_id = attribute("project_id")
+# project_id = "inspec-project-8151"
+print "Project Id"
+print project_id
+# service_account_email = attribute("service_account_email")
 
-# content = inspec.profile.file("terraform.json")
-# params = JSON.parse(content)
+# # content = inspec.profile.file("terraform.json")
+# # params = JSON.parse(content)
 
-# PROJECT_ID = params['project_id']['value']
-# SERVICE_ACCOUNT_EMAIL = params['metadatawriter']['value']
+# # PROJECT_ID = params['project_id']['value']
+# # SERVICE_ACCOUNT_EMAIL = params['metadatawriter']['value']
 
-describe google_project(project: gcp_project_id) do
+describe google_project(project: project_id) do
   it { should exist }
-  its('project_id') { should eq gcp_project_id }
+  its('project_id') { should eq project_id }
 end
 
 # describe google_project(project: gcp_project_id) do

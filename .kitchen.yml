@@ -5,8 +5,8 @@ provisioner:
 verifier:
   name: terraform
   systems:
-    - name: basic
-      backend: local
+    - name: inspec-gcp
+      backend: gcp
 
 platforms:
   - name: terraform
