@@ -6,10 +6,11 @@ locals {
   project_name = "inspec-project"
   activate_apis = [
     "compute.googleapis.com",
+    "cloudresourcemanager.googleapis.com"
   ]
 }
 
-module "test-project" {
+module "sample-project" {
   source = "../"
 
   project_name    = local.project_name

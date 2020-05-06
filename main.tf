@@ -15,3 +15,25 @@ module "project" {
 }
 
 
+# -----------------------------
+#   iam permissions
+# -----------------------------
+
+# Add necessary roles to service account for logging and monitoring
+resource "google_project_iam_member" "logwriter" {
+  project = module.project.project_id
+  role    = "roles/logging.logWriter"
+  member  = "serviceAccount:${module.project.service_account_email}"
+}
+
+resource "google_project_iam_member" "metricwriter" {
+  project = module.project.project_id
+  role    = "roles/monitoring.metricWriter"
+  member  = "serviceAccount:${module.project.service_account_email}"
+}
+
+resource "google_project_iam_member" "metadatawriter" {
+  project = module.project.project_id
+  role    = "roles/stackdriver.resourceMetadata.writer"
+  member  = "serviceAccount:${module.project.service_account_email}"
+}

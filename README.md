@@ -1,6 +1,10 @@
 # terraform-gcp-project
 
-[Terraform](https://www.terraform.io/) module for project creation in GCP. The requiered and default input variables are consistent with oranizational needs at Brown University
+[Terraform](https://www.terraform.io/) module for creating a project in GCP. The requiered and default input variables are consistent with oranizational needs at Brown University. Basic features:
+
+- Based in Google's project factory
+- Requires project to reside inside a folder
+- Enables monitoring and logging
 
 ## How do you use this module?
 
