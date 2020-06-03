@@ -21,3 +21,7 @@ output service_account_display_name {
 output service_account_email {
   value = module.project.service_account_email
 }
+
+output activate_apis {
+  value = module.project.activate_apis
+}

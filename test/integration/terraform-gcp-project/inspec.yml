@@ -11,26 +11,25 @@ attributes:
     required: true
     description: "The GCP project identifier."
     type: string
-  # - name: project_name
-  #   required: true
-  #   description: "The GCP project name."
-  #   type: string
-  # - name: organization_id
-  #   required: true
-  #   description: "The GCP organization identifier."
-  #   type: string
-  # - name: service_account_display_name
-  #   required: true
-  #   description: "The GCP service_account_display_name"
-  #   type: string
+  - name: project_name
+    required: true
+    description: "The GCP project name."
+    type: string
+  - name: organization_id
+    required: true
+    description: "The GCP organization identifier."
+    type: string
+  - name: service_account_display_name
+    required: true
+    description: "The GCP service_account_display_name"
+    type: string
   - name: service_account_email
     required: true
     description: "The GCP service_account_display_name"
     type: string
-  # - name: activate_apis
-  #   required: true
-  #   description: "The GCP active activate_apis"
-  #   type: string
+  - name: activated_apis
+    required: true
+    description: "The GCP active activate_apis"
 depends:
   - name: inspec-gcp
     git: https://github.com/inspec/inspec-gcp.git
