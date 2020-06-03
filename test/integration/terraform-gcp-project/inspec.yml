@@ -18,7 +18,9 @@ attributes:
   - name: organization_id
     required: true
     description: "The GCP organization identifier."
-    type: string
+  - name: folder_id
+    required: true
+    description: "The GCP parent folder identifier."
   - name: service_account_display_name
     required: true
     description: "The GCP service_account_display_name"

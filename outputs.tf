@@ -19,5 +19,13 @@ output "service_account_email" {
 }
 
 output "activate_apis" {
-  value = module.project.activate_apis
+  value = var.activate_apis
+}
+
+output "org_id" {
+  value = var.org_id
+}
+
+output "folder_id" {
+  value = var.folder_id
 }

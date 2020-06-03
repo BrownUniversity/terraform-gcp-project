@@ -6,10 +6,6 @@ output "project_id" {
   value = module.sample-project.project_id
 }
 
-output "project_number" {
-  value = module.sample-project.project_number
-}
-
 output "service_account_display_name" {
   value = module.sample-project.service_account_display_name
 }
@@ -18,6 +14,15 @@ output "service_account_email" {
   value = module.sample-project.service_account_email
 }
 
+
 output "activate_apis" {
-  value = module.sample-project.activate_apis
+  value = var.activate_apis
+}
+
+output "organization_id" {
+  value = var.org_id
+}
+
+output "folder_id" {
+  value = var.folder_id
 }
