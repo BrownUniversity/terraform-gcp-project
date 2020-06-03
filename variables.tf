@@ -27,33 +27,31 @@ variable "activate_apis" {
 # OPTIONAL PARAMETERS
 # These parameters have reasonable defaults.
 # ----------------------------------------------------------------------------
-
-
-variable org_id {
+variable "org_id" {
   description = "Organization id."
   type        = string
   default     = "brown.edu"
 }
 
-variable auto_create_network {
+variable "auto_create_network" {
   description = "Auto create default network."
   type        = bool
   default     = false
 }
 
-variable default_service_account {
+variable "default_service_account" {
   description = "Project default service account setting: can be one of delete, depriviledge, or keep."
   type        = string
   default     = "delete"
 }
 
-variable disable_dependent_services {
+variable "disable_dependent_services" {
   description = "Whether services that are enabled and which depend on this service should also be disabled when this service is destroyed."
   type        = bool
   default     = true
 }
 
-variable labels {
+variable "labels" {
   description = "Map of labels for project."
   default = {
     "environment" = "automation"
