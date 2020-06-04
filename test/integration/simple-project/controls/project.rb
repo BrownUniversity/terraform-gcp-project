@@ -1,4 +1,4 @@
-title "Test creation of GCP Project"
+title "Test creation of a GCP Project"
 
 project_id = attribute("project_id")
 project_name = attribute("project_name")

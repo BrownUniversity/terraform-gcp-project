@@ -1,17 +1,17 @@
 output "project_name" {
-  value = module.sample-project.project_name
+  value = module.simple-project.project_name
 }
 
 output "project_id" {
-  value = module.sample-project.project_id
+  value = module.simple-project.project_id
 }
 
 output "service_account_display_name" {
-  value = module.sample-project.service_account_display_name
+  value = module.simple-project.service_account_display_name
 }
 
 output "service_account_email" {
-  value = module.sample-project.service_account_email
+  value = module.simple-project.service_account_email
 }
 
 

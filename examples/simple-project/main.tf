@@ -7,8 +7,8 @@ locals {
 
 }
 
-module "sample-project" {
-  source = "../"
+module "simple-project" {
+  source = "../../"
 
   project_name    = local.project_name
   billing_account = var.billing_account
