@@ -6,6 +6,14 @@
 - Requires project to reside inside a folder
 - Enables monitoring and logging
 
+## Getting Started
+
+This module depends on you having GCP credentials of some kind. The module looks for a credential file in JSON format. You should export the following:
+
+```
+GOOGLE_APPLICATION_CREDENTIALS=/path/to/file.json
+```
+
 ## How do you use this module?
 
 This folder defines a [Terraform module](https://www.terraform.io/docs/modules/usage.html), which you can use in your
