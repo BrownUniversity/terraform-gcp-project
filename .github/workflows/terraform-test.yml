@@ -8,16 +8,16 @@ jobs:
     container:
       image: brownccv/kitchen-terraform
 
-    env:
-      TF_VAR_billing_account: ${{ SECRETS.GCP_BILLING_ACCOUNT }}
-      TF_VAR_org_id: ${{ SECRETS.GCP_ORG_ID }}
-      TF_VAR_folder_id: ${{ SECRETS.GCP_FOLDER_ID }}
-
     steps:
     - uses: actions/checkout@v1
     - name: Create Credential File
-      run: echo ${{ secrets.GCP_CREDENTIAL_JSON }} > credentials.json
+      run: echo "$GCP_CREDENTIAL_JSON" > credentials.json
+      env:
+        GCP_CREDENTIAL_JSON: ${{ secrets.GCP_CREDENTIAL_JSON}}
     - name: Run Kitchen
       run: bundle exec kitchen test
       env:
+        TF_VAR_billing_account: ${{ secrets.GCP_BILLING_ACCOUNT }}
+        TF_VAR_org_id: ${{ secrets.GCP_ORG_ID }}
+        TF_VAR_folder_id: ${{ secrets.GCP_FOLDER_ID }}
         GOOGLE_APPLICATION_CREDENTIALS: credentials.json
