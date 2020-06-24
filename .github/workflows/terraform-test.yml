@@ -16,7 +16,7 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Create Credential File
-      run: ${{ secrets.GCP_CREDENTIAL_JSON }} > credentials.json
+      run: echo ${{ secrets.GCP_CREDENTIAL_JSON }} > credentials.json
     - name: Run Kitchen
       run: bundle exec kitchen test
       env:
