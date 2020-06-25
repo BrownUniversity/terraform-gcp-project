@@ -5,7 +5,7 @@ on: [push]
 jobs:
   test:
     runs-on: ubuntu-latest
-    container: brown-ccv/kitchen-terraform:latest
+    container: brownccv/kitchen-terraform:latest
 
     steps:
     - uses: actions/checkout@v1
