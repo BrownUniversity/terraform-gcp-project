@@ -20,7 +20,7 @@ jobs:
       run: |
         echo $PWD
         ls -la
-        ls -la tmp
+        ls -la /tmp
     - name: Run Kitchen
       run: kitchen test
       env:
