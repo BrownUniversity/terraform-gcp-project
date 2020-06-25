@@ -14,8 +14,10 @@ jobs:
       run: echo "$GCP_CREDENTIAL_JSON" > credentials.json
       env:
         GCP_CREDENTIAL_JSON: ${{ secrets.GCP_CREDENTIAL_JSON}}
+    - name: where am I?
+      run: echo $PWD
     - name: Run Kitchen
-      run: bundle exec kitchen test
+      run: kitchen test
       env:
         TF_VAR_billing_account: ${{ secrets.GCP_BILLING_ACCOUNT }}
         TF_VAR_org_id: ${{ secrets.GCP_ORG_ID }}
