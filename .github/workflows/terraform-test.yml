@@ -13,14 +13,8 @@ jobs:
     - name: Create Credential File
       run: |
         echo "$GCP_CREDENTIAL_JSON" > /tmp/credentials.json
-        echo "test" > test.txt
       env:
         GCP_CREDENTIAL_JSON: ${{ secrets.GCP_CREDENTIAL_JSON}}
-    - name: where am I?
-      run: |
-        echo $PWD
-        ls -la
-        ls -la /tmp
     - name: Run Kitchen
       run: kitchen test
       env:
