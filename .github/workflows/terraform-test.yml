@@ -11,15 +11,17 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Create Credential File
-      run: echo "$GCP_CREDENTIAL_JSON" > credentials.json
+      run: echo "$GCP_CREDENTIAL_JSON" > ~/credentials.json
       env:
         GCP_CREDENTIAL_JSON: ${{ secrets.GCP_CREDENTIAL_JSON}}
     - name: where am I?
-      run: echo $PWD
+      run: |
+        echo $PWD
+        ls -la
     - name: Run Kitchen
       run: kitchen test
       env:
         TF_VAR_billing_account: ${{ secrets.GCP_BILLING_ACCOUNT }}
         TF_VAR_org_id: ${{ secrets.GCP_ORG_ID }}
         TF_VAR_folder_id: ${{ secrets.GCP_FOLDER_ID }}
-        GOOGLE_APPLICATION_CREDENTIALS: credentials.json
+        GOOGLE_APPLICATION_CREDENTIALS: ~/credentials.json
