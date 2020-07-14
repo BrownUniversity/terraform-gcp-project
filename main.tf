@@ -1,6 +1,6 @@
 module "project" {
   source  = "terraform-google-modules/project-factory/google"
-  version = "~> 6.0"
+  version = "= 8.0.1"
 
   name                       = var.project_name
   random_project_id          = true
