@@ -102,14 +102,22 @@ And now you're ready to run test kitchen. Test kitchen has a couple main command
 
 ## Development
 
-## Merging Policy
+### Merging Policy
 Use [GitLab Flow](https://docs.gitlab.com/ee/topics/gitlab_flow.html#production-branch-with-gitlab-flow).
 
 * Create feature branches for features and fixes from default branch
 * Merge only from PR with review
-* After successful merge to default branch (check tests again) a release tagged
+* After merging to default branch a release is drafted using a github action. Check the draft and publish if you and tests are happy
 
-## Pre-commit hooks
+### Pre-commit hooks
 Install and configure terraform [pre-commit hooks](https://github.com/antonbabenko/pre-commit-terraform)
 To run them: `pre-commit run -a`
 
+### CI
+This project has three workflows enabled:
+
+1. PR labeler: When openning a PR to defaukt branch, a label is given assigned automatically accourding to the name of your feature branch. The labeler follows the follows rules in [pr-labeler.yml](.github/pr-labeler.yml)
+
+2. Realease Drafter: When merging to master, a release is drafted using the [Release-Drafter Action](https://github.com/marketplace/actions/release-drafter)
+
+3. `Kitchen test` is run on every commit unless `[skip ci]` is added to commit message.
