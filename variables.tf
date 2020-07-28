@@ -52,6 +52,7 @@ variable "disable_dependent_services" {
 }
 
 variable "labels" {
+  type        = map(string)
   description = "Map of labels for project."
   default = {
     "environment" = "automation"
