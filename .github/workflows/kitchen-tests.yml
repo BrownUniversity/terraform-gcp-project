@@ -4,6 +4,7 @@ on: [push, workflow_dispatch]
 
 jobs:
   all:
+    if: "!contains(github.event.commits[0].message, '[skip ci]')"
     runs-on: ubuntu-latest
     container: brownccv/kitchen-terraform:latest
 

@@ -56,7 +56,7 @@ code by adding a `module` configuration and setting its `source` parameter to UR
 | default\_service\_account | Project default service account setting: can be one of delete, depriviledge, or keep. | `string` | `"delete"` | no |
 | disable\_dependent\_services | Whether services that are enabled and which depend on this service should also be disabled when this service is destroyed. | `bool` | `true` | no |
 | folder\_id | The existing folder to use for the project | `string` | n/a | yes |
-| labels | Map of labels for project. | `map` | <pre>{<br>  "environment": "automation",<br>  "managed_by": "terraform"<br>}</pre> | no |
+| labels | Map of labels for project. | `map(string)` | <pre>{<br>  "environment": "automation",<br>  "managed_by": "terraform"<br>}</pre> | no |
 | org\_id | Organization id. | `string` | `"brown.edu"` | no |
 | project\_name | The human readable name for the project factory | `string` | n/a | yes |
 
@@ -64,14 +64,13 @@ code by adding a `module` configuration and setting its `source` parameter to UR
 
 | Name | Description |
 |------|-------------|
-| activate\_apis | n/a |
-| folder\_id | n/a |
-| org\_id | n/a |
-| project\_id | n/a |
-| project\_name | n/a |
-| project\_number | n/a |
-| service\_account\_display\_name | n/a |
-| service\_account\_email | n/a |
+| activate\_apis | Active Google APIS |
+| folder\_id | Folder ID |
+| org\_id | Organization ID |
+| project\_id | Project ID |
+| project\_name | Project Name |
+| service\_account\_display\_name | Name of service account |
+| service\_account\_email | Email for service account |
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
