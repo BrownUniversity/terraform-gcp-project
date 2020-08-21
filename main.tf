@@ -1,9 +1,14 @@
+locals {
+  project_id = var.project_id == "" ? lower(replace(substr(var.project_name, 0, 24), " ", "-")) : var.project_id
+}
+
 module "project" {
   source  = "terraform-google-modules/project-factory/google"
   version = "= 8.0.1"
 
   name                       = var.project_name
   random_project_id          = true
+  project_id                 = local.project_id
   org_id                     = var.org_id
   folder_id                  = var.folder_id
   billing_account            = var.billing_account

@@ -58,6 +58,7 @@ code by adding a `module` configuration and setting its `source` parameter to UR
 | folder\_id | The existing folder to use for the project | `string` | n/a | yes |
 | labels | Map of labels for project. | `map(string)` | <pre>{<br>  "environment": "automation",<br>  "managed_by": "terraform"<br>}</pre> | no |
 | org\_id | Organization id. | `string` | `"brown.edu"` | no |
+| project\_id | Make project\_id a user-settable parameter | `string` | `""` | no |
 | project\_name | The human readable name for the project factory | `string` | n/a | yes |
 
 ## Outputs
