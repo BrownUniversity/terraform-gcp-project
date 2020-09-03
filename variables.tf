@@ -27,6 +27,12 @@ variable "activate_apis" {
 # OPTIONAL PARAMETERS
 # These parameters have reasonable defaults.
 # ----------------------------------------------------------------------------
+variable "project_id" {
+  description = "Make project_id a user-settable parameter"
+  type        = string
+  default     = ""
+}
+
 variable "org_id" {
   description = "Organization id."
   type        = string

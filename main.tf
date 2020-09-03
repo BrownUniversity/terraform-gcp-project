@@ -4,6 +4,7 @@ module "project" {
 
   name                       = var.project_name
   random_project_id          = true
+  project_id                 = var.project_id == null ? lower(replace(substr(var.project_name, 0, 24), " ", "-")) : var.project_id
   org_id                     = var.org_id
   folder_id                  = var.folder_id
   billing_account            = var.billing_account
