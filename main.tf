@@ -20,21 +20,23 @@ module "project" {
 #   iam permissions
 # -----------------------------
 
-# Add necessary roles to service account for logging and monitoring
-resource "google_project_iam_member" "logwriter" {
-  project = module.project.project_id
-  role    = "roles/logging.logWriter"
-  member  = "serviceAccount:${module.project.service_account_email}"
-}
-
-resource "google_project_iam_member" "metricwriter" {
-  project = module.project.project_id
-  role    = "roles/monitoring.metricWriter"
-  member  = "serviceAccount:${module.project.service_account_email}"
-}
-
-resource "google_project_iam_member" "metadatawriter" {
-  project = module.project.project_id
-  role    = "roles/stackdriver.resourceMetadata.writer"
-  member  = "serviceAccount:${module.project.service_account_email}"
+module "projects_iam_bindings" {
+  source   = "terraform-google-modules/iam/google//modules/projects_iam"
+  version  = "~> 7.2"
+  mode     = "authoritative"
+  projects = [module.project.project_id]
+  bindings = {
+    "roles/logging.logWriter" = [
+      "serviceAccount:${module.project.service_account_email}"
+    ]
+    "roles/monitoring.metricWriter" = [
+      "serviceAccount:${module.project.service_account_email}"
+    ]
+    "roles/stackdriver.resourceMetadata.writer" = [
+      "serviceAccount:${module.project.service_account_email}"
+    ]
+  }
+  depends_on = [
+    module.project,
+  ]
 }
