@@ -6,7 +6,7 @@ jobs:
   all:
     if: "!contains(github.event.commits[0].message, '[skip ci]')"
     runs-on: ubuntu-latest
-    container: brownccv/kitchen-terraform:latest
+    container: ghcr.io/brownuniversity/kitchen-terraform:1.0.0
 
     steps:
     - uses: actions/checkout@v1
