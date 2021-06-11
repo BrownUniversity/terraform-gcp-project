@@ -37,14 +37,12 @@ code by adding a `module` configuration and setting its `source` parameter to UR
 
 | Name | Version |
 |------|---------|
-| terraform | >= 0.12 |
+| terraform | >= 1.0 |
 | google | >= 3.0, <4.0.0 |
 
 ## Providers
 
-| Name | Version |
-|------|---------|
-| google | >= 3.0, <4.0.0 |
+No provider.
 
 ## Inputs
 
@@ -98,6 +96,7 @@ And now you're ready to run test kitchen. Test kitchen has a couple main command
 - `bundle exec kitchen create` initializes terraform.
 - `bundle exec kitchen converge` runs our terraform examples.
 - `bundle exec kitchen verify` runs our inspec scripts against a converged kitchen.
+- `bundle exec kitchen destroy` destroys infrastructure.
 - `bundle exec kitchen test` does all the above.
 
 
