@@ -36,7 +36,4 @@ module "projects_iam_bindings" {
       "serviceAccount:${module.project.service_account_email}"
     ]
   }
-  depends_on = [
-    module.project,
-  ]
 }
