@@ -84,31 +84,6 @@ No resources.
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
 
-## Testing
-
-This repository uses Kitchen-Terraform to test the terraform modules. In the [examples](/examples) directory you can find examples of how each module can be used. Those examples are fed to [Test Kitchen][https://kitchen.ci/]. To install test kitchen, first make sure you have Ruby and bundler installed.
-
-```
-brew install ruby
-gem install bundler
-```
-
-Then install the prerequisites for test kitchen.
-
-```
-bundle install
-```
-
-You'll need to add some common credentials and secret variables
-
-And now you're ready to run test kitchen. Test kitchen has a couple main commands:
-
-- `bundle exec kitchen create` initializes terraform.
-- `bundle exec kitchen converge` runs our terraform examples.
-- `bundle exec kitchen verify` runs our inspec scripts against a converged kitchen.
-- `bundle exec kitchen destroy` destroys infrastructure.
-- `bundle exec kitchen test` does all the above.
-
 
 ## Development
 
@@ -160,6 +135,32 @@ To run the hooks specified in `.pre-commit-config.yaml`:
 ```
 pre-commit run -a
 ```
+
+### Testing
+
+This repository uses Kitchen-Terraform to test the terraform modules. In the [examples](/examples) directory you can find examples of how each module can be used. Those examples are fed to [Test Kitchen][https://kitchen.ci/]. To install test kitchen, first make sure you have Ruby and bundler installed.
+
+```
+gem install bundler
+```
+
+Then install the prerequisites for test kitchen.
+
+```
+bundle install
+```
+
+You'll need to add some common credentials and secret variables
+
+And now you're ready to run test kitchen. Test kitchen has a couple main commands:
+
+- `bundle exec kitchen create` initializes terraform.
+- `bundle exec kitchen converge` runs our terraform examples.
+- `bundle exec kitchen verify` runs our inspec scripts against a converged kitchen.
+- `bundle exec kitchen destroy` destroys infrastructure.
+- `bundle exec kitchen test` does all the above.
+
+
 
 ### CI
 This project has three workflows enabled:
