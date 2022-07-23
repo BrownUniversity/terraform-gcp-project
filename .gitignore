@@ -38,3 +38,4 @@ override.tf.json
 # example: *tfplan*
 examples/simple-project/.terraform.lock.hcl
 Brewfile.lock.json
+env.sh
