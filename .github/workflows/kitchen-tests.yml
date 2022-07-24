@@ -64,7 +64,7 @@ jobs:
     needs: docker
     runs-on: ubuntu-latest
     container: 
-      image: ${{ needs.docker.outputs.var }}
+      image: ghcr.io/brownuniversity/terraform-gcp-project:pr-13
 
     steps:
     - name: print_tag
