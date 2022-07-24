@@ -18,7 +18,7 @@ jobs:
   docker:
     runs-on: ubuntu-latest
     outputs:
-      tag: ${{ steps.save_var.outputs.tag }}
+      var: ${{ steps.save_var.outputs.var }}
     steps:
       - uses: actions/checkout@v2
 
@@ -64,7 +64,7 @@ jobs:
     needs: docker
     runs-on: ubuntu-latest
     container: 
-      image: ${{ needs.docker.outputs.tag }}
+      image: ${{ needs.docker.outputs.var }}
 
     steps:
     - uses: actions/checkout@v1
