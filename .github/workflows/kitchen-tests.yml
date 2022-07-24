@@ -49,6 +49,9 @@ jobs:
       - id: save_tag
         run: echo "::set-output name=tag::${{ steps.meta.outputs.tags[0] }}"
 
+      - id: print tag
+        run: echo "${{ steps.meta.outputs.tags[0] }}"
+
       - name: Build and push Docker image
         uses: docker/build-push-action@v2
         with:
@@ -61,7 +64,7 @@ jobs:
     needs: docker
     runs-on: ubuntu-latest
     container: 
-      image: ghcr.io/BrownUniversity/terraform-gcp-project:${{ needs.docker.outputs.tag }}
+      image: ghcr.io/brownuniversity/terraform-gcp-project:${{ needs.docker.outputs.tag }}
 
     steps:
     - uses: actions/checkout@v1
