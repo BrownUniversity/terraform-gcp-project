@@ -49,7 +49,7 @@ jobs:
       - id: save_tag
         run: echo "::set-output name=tag::${{ steps.meta.outputs.tags[0] }}"
 
-      - id: print tag
+      - name: print_tag
         run: echo "${{ steps.meta.outputs.tags[0] }}"
 
       - name: Build and push Docker image
