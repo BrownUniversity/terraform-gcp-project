@@ -68,7 +68,7 @@ jobs:
 
     steps:
     - name: print_tag
-        run: echo "${{ needs.docker.outputs.var }}"
+      run: echo "${{ needs.docker.outputs.var }}"
     # - uses: actions/checkout@v1
     # - name: Create Credential File
     #   run: |
