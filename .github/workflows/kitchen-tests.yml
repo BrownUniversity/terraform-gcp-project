@@ -61,7 +61,7 @@ jobs:
     needs: docker
     runs-on: ubuntu-latest
     container: 
-      image: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{needs.docker.outputs.tag}}
+      image: ghcr.io/BrownUniversity/terraform-gcp-project:${{ needs.docker.outputs.tag }}
 
     steps:
     - uses: actions/checkout@v1
