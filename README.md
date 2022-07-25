@@ -37,8 +37,8 @@ code by adding a `module` configuration and setting its `source` parameter to UR
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0 |
-| <a name="requirement_google"></a> [google](#requirement\_google) | >= 3.0, <4.0.0 |
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.2.5 |
+| <a name="requirement_google"></a> [google](#requirement\_google) | >= 4.2.9, <5.0.0 |
 
 ## Providers
 
@@ -48,7 +48,7 @@ No providers.
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_project"></a> [project](#module\_project) | terraform-google-modules/project-factory/google | = 10.3.2 |
+| <a name="module_project"></a> [project](#module\_project) | terraform-google-modules/project-factory/google | = 13.0.0 |
 | <a name="module_projects_iam_bindings"></a> [projects\_iam\_bindings](#module\_projects\_iam\_bindings) | terraform-google-modules/iam/google//modules/projects_iam | ~> 7.2 |
 
 ## Resources
@@ -85,7 +85,7 @@ No resources.
 
 
 
-## Development
+## Local Development
 
 ### Merging Policy
 Use [GitLab Flow](https://docs.gitlab.com/ee/topics/gitlab_flow.html#production-branch-with-gitlab-flow).
@@ -93,8 +93,6 @@ Use [GitLab Flow](https://docs.gitlab.com/ee/topics/gitlab_flow.html#production-
 * Create feature branches for features and fixes from default branch
 * Merge only from PR with review
 * After merging to default branch a release is drafted using a github action. Check the draft and publish if you and tests are happy
-
-### Requisites
 
 ### Version managers
 
@@ -106,19 +104,21 @@ brew install asdf
 
 Alternatively you can use [tfenv](https://github.com/tfutils/tfenv) and [rbenv](https://github.com/rbenv/rbenv)
 
-#### Terraform
+### Terraform and Ruby
 
-You will need to install the version of terraform specified in the `.terraform-version`/`.tool-versions` file. 
+The tests can simply run in CI. If you want to run the tests locally, you will need to install the version of terraform and Ruby specified in the `.tool-versions` file (or `.terraform-version`, `.ruby-version`). 
 
 ```
 asdf plugin-add terraform https://github.com/asdf-community/asdf-hashicorp.git
+asdf plugin add ruby https://github.com/asdf-vm/asdf-ruby.git
 asdf install
 ```
 
-### Pre-commit hooks
-Install and configure terraform [pre-commit hooks](https://github.com/antonbabenko/pre-commit-terraform) as follows:
+#### Pre-commit hooks
+You should make sure that pre-commit hooks are installed to run the formater, linter, etc. Install and configure terraform [pre-commit hooks](https://github.com/antonbabenko/pre-commit-terraform) as follows:
 
 Install rependencies
+
 ```
 brew bundle install
 ```
@@ -135,6 +135,24 @@ To run the hooks specified in `.pre-commit-config.yaml`:
 ```
 pre-commit run -a
 ```
+
+### GCloud
+
+This is only needed if running tests locally. The google-cloud-sdk is included in the Brewfile so it should now be installed
+This repo includes a `env.sh` file that where you set the path to the google credentials file, then use
+
+```
+source env.sh
+```
+
+and
+
+```
+deactivate
+```
+
+to set and uset the `GOOGLE_APPLICATION_CREDENTIALS` variable.
+
 
 ### Testing
 
@@ -161,7 +179,6 @@ And now you're ready to run test kitchen. Test kitchen has a couple main command
 - `bundle exec kitchen test` does all the above.
 
 
-
 ### CI
 This project has three workflows enabled:
 
@@ -169,4 +186,4 @@ This project has three workflows enabled:
 
 2. Realease Drafter: When merging to master, a release is drafted using the [Release-Drafter Action](https://github.com/marketplace/actions/release-drafter)
 
-3. `Kitchen test` is run on every commit unless `[skip ci]` is added to commit message.
+3. `Kitchen test` runs on PR, merge to main and releases.
