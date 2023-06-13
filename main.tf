@@ -22,7 +22,7 @@ module "project" {
 
 module "projects_iam_bindings" {
   source   = "terraform-google-modules/iam/google//modules/projects_iam"
-  version  = "~> 7.2"
+  version  = "7.6.0"
   mode     = "authoritative"
   projects = [module.project.project_id]
   bindings = {
