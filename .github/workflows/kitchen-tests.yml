@@ -49,6 +49,9 @@ jobs:
       - id: save_full_image_id
         run: echo "{full_image_id}=${{ fromJSON(steps.meta.outputs.json).tags[0] }}" >> $GITHUB_ENV
 
+      - id: print_image_id
+        run: echo "${{ github.env.full_image_id }}"
+
       - name: print_tag
         run: echo "${{ fromJSON(steps.meta.outputs.json).tags[0] }}"
 
