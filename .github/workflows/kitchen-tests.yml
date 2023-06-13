@@ -47,10 +47,7 @@ jobs:
 
       # NOTE: We are tapping into json output because tags could become a list if prior step is modified
       - id: save_full_image_id
-        run: echo "full_image_id=${{ fromJSON(steps.meta.outputs.json).tags[0] }}" >> $GITHUB_ENV
-
-      - id: print_image_id
-        run: echo "${{ github.env.full_image_id }}"
+        run: echo "full_image_id=${{ fromJSON(steps.meta.outputs.json).tags[0] }}" >> $GITHUB_OUTPUT
 
       - name: print_tag
         run: echo "${{ fromJSON(steps.meta.outputs.json).tags[0] }}"
@@ -69,7 +66,7 @@ jobs:
     needs: docker
     runs-on: ubuntu-latest
     container: 
-      image: "${{ github.env.full_image_id }}"
+      image: "${{ steps.save_full_image_id.outputs.full_image_id }}"
 
     steps:
     - uses: actions/checkout@v3
