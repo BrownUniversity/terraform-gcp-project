@@ -35,6 +35,6 @@ attributes:
 depends:
   - name: inspec-gcp
     git: https://github.com/inspec/inspec-gcp.git
-    tag: v1.4.0
+    tag: v1.10.37
 supports:
   - platform: gcp
