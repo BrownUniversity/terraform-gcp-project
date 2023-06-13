@@ -66,7 +66,7 @@ jobs:
     needs: docker
     runs-on: ubuntu-latest
     container: 
-      image: "${{ steps.save_full_image_id.outputs.full_image_id }}"
+      image: "${{ needs.docker.outputs.full_image_id }}"
 
     steps:
     - uses: actions/checkout@v3
