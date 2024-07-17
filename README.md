@@ -106,7 +106,7 @@ Alternatively you can use [tfenv](https://github.com/tfutils/tfenv) and [rbenv](
 
 ### Terraform and Ruby
 
-The tests can simply run in CI. If you want to run the tests locally, you will need to install the version of terraform and Ruby specified in the `.tool-versions` file (or `.terraform-version`, `.ruby-version`). 
+The tests can simply run in CI. If you want to run the tests locally, you will need to install the version of terraform and Ruby specified in the `.tool-versions` file. 
 
 ```
 asdf plugin-add terraform https://github.com/asdf-community/asdf-hashicorp.git
