@@ -1,0 +1,5 @@
+# Run the following command to get the billing account:
+#   gcloud beta billing accounts list | grep -i cis_card | awk '{ print $1 }'
+
+billing_account = ""
+
