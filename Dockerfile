@@ -9,8 +9,8 @@ RUN apk upgrade && \
     bash \
     curl-dev \
     curl \
-    "ruby-dev=~$(grep ruby .tool-versions | awk '{print $2}')" \
-    "ruby-full=~$(grep ruby .tool-versions | awk '{print $2}')" \
+    "ruby-dev=~$(grep ruby .tool-versions | awk '{print $2}' | tr -d '\n')" \
+    "ruby-full=~$(grep ruby .tool-versions | awk '{print $2}' | tr -d '\n')" \
     build-base \
     python3 && \
     rm -rf /var/cache/apk/*
