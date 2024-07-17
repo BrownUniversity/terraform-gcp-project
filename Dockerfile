@@ -9,6 +9,7 @@ RUN apk upgrade && \
     bash \
     curl-dev \
     curl \
+    linux-headers \
     "ruby-dev=~$(grep ruby .tool-versions | awk '{print $2}' | tr -d '\n')" \
     "ruby-full=~$(grep ruby .tool-versions | awk '{print $2}' | tr -d '\n')" \
     build-base \
