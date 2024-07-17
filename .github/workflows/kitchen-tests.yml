@@ -20,7 +20,7 @@ jobs:
     outputs:
       full_image_id: ${{ steps.save_full_image_id.outputs.full_image_id }}
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
