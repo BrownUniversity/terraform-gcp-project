@@ -1,6 +1,6 @@
-FROM hashicorp/terraform:1.5.0
+FROM hashicorp/terraform:1.9.2
 
-COPY .ruby-version .ruby-version
+COPY .tool-versions .tool-versions
 
 # Update and install all of the required packages.
 # At the end, remove the apk cache
@@ -9,8 +9,8 @@ RUN apk upgrade && \
     bash \
     curl-dev \
     curl \
-    "ruby-dev=~$(cat .ruby-version)" \
-    "ruby-full=~$(cat .ruby-version)" \
+    "ruby-dev=~$(grep ruby .tool-versions | awk '{print $2}')" \
+    "ruby-full=~$(grep ruby .tool-versions | awk '{print $2}')" \
     build-base \
     python3 && \
     rm -rf /var/cache/apk/*
