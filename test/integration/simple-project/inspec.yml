@@ -5,7 +5,7 @@ copyright: Brown University
 license: MIT
 summary: An InSpec Compliance Profile For GCP
 version: 0.1.0
-inspec_version: ">= 2.3.5"
+inspec_version: ">= 5.22.3"
 attributes:
   - name: project_id
     required: true
