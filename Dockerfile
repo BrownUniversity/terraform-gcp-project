@@ -20,8 +20,10 @@ RUN mkdir /usr/app
 WORKDIR /usr/app
 
 COPY Gemfile* ./
-RUN gem install bundler && \
+RUN gem cleanup && \
+    gem install bundler && \
     bundle config set system 'true' && \
+    bundle clean --force && \
     bundle install
 
 
