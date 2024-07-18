@@ -15,7 +15,7 @@ run "simple_project_test" {
     }
 
     assert {
-      condition = google_project.lifecycle_state == "ACTIVE"
+      condition = google_project.project.lifecycle_state == "ACTIVE"
       error_message = "Project is not active"
     }
 
