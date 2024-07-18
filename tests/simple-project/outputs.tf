@@ -22,6 +22,10 @@ output "roles" {
   value = module.simple-project.roles
 }
 
+output "members" {
+  value = module.simple-project.members
+}
+
 output "activate_apis" {
   value = var.activate_apis
 }

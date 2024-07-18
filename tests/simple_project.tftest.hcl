@@ -25,17 +25,22 @@ run "simple_project_test" {
     }
 
     assert {
-      condition = contains(output.roles, "roles/stackdriver.resourceMetadata.writer")
-      error_message = "Stackdriver IAM binding does not include the service account"
+      condition = contains(output.members, "serviceAccount:${output.service_account_email}")
+      error_message = "Service account not a member to the project!"
     }
 
-    // assert {
-    //   condition = lookup(output.roles, "roles/monitoring.metricWriter") == "serviceAccount:${output.service_account_email}"
-    //   error_message = "Monitoring IAM binding does not include the service account"
-    // }
+    assert {
+      condition = contains(output.roles, "roles/stackdriver.resourceMetadata.writer")
+      error_message = "Stackdriver IAM binding not created!"
+    }
 
-    // assert {
-    //   condition = lookup(output.roles, "roles/monitoring.metricWriter") == "serviceAccount:${output.service_account_email}"
-    //   error_message = "Monitoring IAM binding does not include the service account"
-    // }
+    assert {
+      condition = contains(output.roles, "roles/monitoring.metricWriter")
+      error_message = "Monitoring IAM binding not created!"
+    }
+
+    assert {
+      condition = contains(output.roles, "roles/logging.logWriter")
+      error_message = "Logging IAM binding not created!"
+    }
 }

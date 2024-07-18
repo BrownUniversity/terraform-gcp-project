@@ -75,8 +75,6 @@ jobs:
         echo "$GCP_CREDENTIAL_JSON" | base64 -d > /tmp/credentials.json
       env:
         GCP_CREDENTIAL_JSON: ${{ secrets.GCP_CI_CREDENTIAL_JSON}}
-    - name: Print billing account
-      run: echo ${{ secrets.GCP_BURWOOD_BILLING_ACCOUNT }}
     - name: Run terraform test
       run: |
         terraform init

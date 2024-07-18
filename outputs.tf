@@ -28,6 +28,11 @@ output "roles" {
   value       = module.projects_iam_bindings.roles
 }
 
+output "members" {
+  description = "Members"
+  value       = module.projects_iam_bindings.members
+}
+
 output "activate_apis" {
   description = "Activate APIs"
   value       = var.activate_apis
