@@ -16,6 +16,7 @@ run "simple_project_test" {
 
     assert {
       condition = module.simple-project.name == "inspect-project"
+      error_message = "Project name is not correct!"
     }
 
     assert {
