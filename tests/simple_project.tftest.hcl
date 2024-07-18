@@ -4,10 +4,6 @@ run "simple_project_test" {
         source = "./tests/simple-project"
     }
 
-    resource "google_project" "project" {
-        project_id = module.simple-project.project_id
-    }
-
     assert {
       condition = output.project_id != null
       error_message = "Project does not exist!"
