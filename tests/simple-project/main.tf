@@ -16,8 +16,3 @@ module "simple-project" {
   folder_id       = var.folder_id
   org_id          = var.org_id
 }
-
-resource "google_project" "project" {
-  name       = module.simple-project.project_name
-  project_id = module.simple-project.project_id
-}

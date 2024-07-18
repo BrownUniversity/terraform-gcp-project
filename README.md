@@ -42,7 +42,9 @@ code by adding a `module` configuration and setting its `source` parameter to UR
 
 ## Providers
 
-No providers.
+| Name | Version |
+|------|---------|
+| <a name="provider_google"></a> [google](#provider\_google) | 5.38.0 |
 
 ## Modules
 
@@ -53,7 +55,9 @@ No providers.
 
 ## Resources
 
-No resources.
+| Name | Type |
+|------|------|
+| [google_project.project](https://registry.terraform.io/providers/hashicorp/google/5.38.0/docs/resources/project) | resource |
 
 ## Inputs
 

@@ -15,6 +15,12 @@ module "project" {
   labels                     = var.labels
 }
 
+resource "google_project" "project" {
+  project_id = module.project.project_id
+  name       = module.project.project_name
+  org_id     = var.org_id
+}
+
 
 # -----------------------------
 #   iam permissions
