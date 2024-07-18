@@ -4,6 +4,10 @@ run "simple_project_test" {
         source = "./tests/simple-project"
     }
 
+    resource "google_project" "project" {
+        project_id = module.simple-project.project_id
+    }
+
     assert {
       condition = output.project_id != null
       error_message = "Project does not exist!"
@@ -20,12 +24,12 @@ run "simple_project_test" {
     }
 
     assert {
-      condition = google_project.parent[0].type == "folder"
+      condition = google_project.project.parent[0].type == "folder"
       error_message = "Project parent type is not 'folder'"
     }
 
     assert {
-      condition = google_project.test_project.parent[0].id == var.folder_id
+      condition = google_project.project.parent[0].id == var.folder_id
       error_message = "Project parent ID does not match"
     }
 
