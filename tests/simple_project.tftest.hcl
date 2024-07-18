@@ -15,7 +15,11 @@ run "simple_project_test" {
     }
 
     assert {
-      condition = google_project.project.lifecycle_state == "ACTIVE"
+      condition = module.simple-project.name == "inspect-project"
+    }
+
+    assert {
+      condition = module.simple-project.lifecycle_state == "ACTIVE"
       error_message = "Project is not active"
     }
 
