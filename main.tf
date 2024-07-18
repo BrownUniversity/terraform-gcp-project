@@ -1,6 +1,6 @@
 module "project" {
   source  = "terraform-google-modules/project-factory/google"
-  version = "= 15.0.1"
+  version = "~> 15.0"
 
   name                       = var.project_name
   random_project_id          = true
@@ -21,8 +21,9 @@ module "project" {
 # -----------------------------
 
 module "projects_iam_bindings" {
-  source   = "terraform-google-modules/iam/google//modules/projects_iam"
-  version  = "7.7.1"
+  source  = "terraform-google-modules/iam/google//modules/projects_iam"
+  version = "7.7.1"
+
   mode     = "authoritative"
   projects = [module.project.project_id]
   bindings = {

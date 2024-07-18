@@ -48,7 +48,7 @@ No providers.
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_project"></a> [project](#module\_project) | terraform-google-modules/project-factory/google | = 15.0.1 |
+| <a name="module_project"></a> [project](#module\_project) | terraform-google-modules/project-factory/google | ~> 15.0 |
 | <a name="module_projects_iam_bindings"></a> [projects\_iam\_bindings](#module\_projects\_iam\_bindings) | terraform-google-modules/iam/google//modules/projects_iam | 7.7.1 |
 
 ## Resources
