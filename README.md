@@ -74,11 +74,13 @@ No resources.
 
 | Name | Description |
 |------|-------------|
-| <a name="output_activate_apis"></a> [activate\_apis](#output\_activate\_apis) | Active Google APIS |
+| <a name="output_activate_apis"></a> [activate\_apis](#output\_activate\_apis) | Activate APIs |
+| <a name="output_enabled_apis"></a> [enabled\_apis](#output\_enabled\_apis) | Active Google APIS |
 | <a name="output_folder_id"></a> [folder\_id](#output\_folder\_id) | Folder ID |
 | <a name="output_org_id"></a> [org\_id](#output\_org\_id) | Organization ID |
 | <a name="output_project_id"></a> [project\_id](#output\_project\_id) | Project ID |
 | <a name="output_project_name"></a> [project\_name](#output\_project\_name) | Project Name |
+| <a name="output_roles"></a> [roles](#output\_roles) | Roles |
 | <a name="output_service_account_display_name"></a> [service\_account\_display\_name](#output\_service\_account\_display\_name) | Name of service account |
 | <a name="output_service_account_email"></a> [service\_account\_email](#output\_service\_account\_email) | Email for service account |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
