@@ -18,8 +18,23 @@ output "service_account_email" {
   value       = module.project.service_account_email
 }
 
-output "activate_apis" {
+output "enabled_apis" {
   description = "Active Google APIS"
+  value       = module.project.enabled_apis
+}
+
+output "roles" {
+  description = "Roles"
+  value       = module.projects_iam_bindings.roles
+}
+
+output "members" {
+  description = "Members"
+  value       = module.projects_iam_bindings.members
+}
+
+output "activate_apis" {
+  description = "Activate APIs"
   value       = var.activate_apis
 }
 

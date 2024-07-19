@@ -37,8 +37,8 @@ code by adding a `module` configuration and setting its `source` parameter to UR
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.5.0 |
-| <a name="requirement_google"></a> [google](#requirement\_google) | >= 4.69.0, <5.0.0 |
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.9.0 |
+| <a name="requirement_google"></a> [google](#requirement\_google) | 5.38.0 |
 
 ## Providers
 
@@ -48,8 +48,8 @@ No providers.
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_project"></a> [project](#module\_project) | terraform-google-modules/project-factory/google | = 14.2.0 |
-| <a name="module_projects_iam_bindings"></a> [projects\_iam\_bindings](#module\_projects\_iam\_bindings) | terraform-google-modules/iam/google//modules/projects_iam | 7.6.0 |
+| <a name="module_project"></a> [project](#module\_project) | terraform-google-modules/project-factory/google | ~> 15.0 |
+| <a name="module_projects_iam_bindings"></a> [projects\_iam\_bindings](#module\_projects\_iam\_bindings) | terraform-google-modules/iam/google//modules/projects_iam | 7.7.1 |
 
 ## Resources
 
@@ -74,11 +74,14 @@ No resources.
 
 | Name | Description |
 |------|-------------|
-| <a name="output_activate_apis"></a> [activate\_apis](#output\_activate\_apis) | Active Google APIS |
+| <a name="output_activate_apis"></a> [activate\_apis](#output\_activate\_apis) | Activate APIs |
+| <a name="output_enabled_apis"></a> [enabled\_apis](#output\_enabled\_apis) | Active Google APIS |
 | <a name="output_folder_id"></a> [folder\_id](#output\_folder\_id) | Folder ID |
+| <a name="output_members"></a> [members](#output\_members) | Members |
 | <a name="output_org_id"></a> [org\_id](#output\_org\_id) | Organization ID |
 | <a name="output_project_id"></a> [project\_id](#output\_project\_id) | Project ID |
 | <a name="output_project_name"></a> [project\_name](#output\_project\_name) | Project Name |
+| <a name="output_roles"></a> [roles](#output\_roles) | Roles |
 | <a name="output_service_account_display_name"></a> [service\_account\_display\_name](#output\_service\_account\_display\_name) | Name of service account |
 | <a name="output_service_account_email"></a> [service\_account\_email](#output\_service\_account\_email) | Email for service account |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
@@ -96,31 +99,27 @@ Use [GitLab Flow](https://docs.gitlab.com/ee/topics/gitlab_flow.html#production-
 
 ### Version managers
 
-We recommend using [asdf](https://asdf-vm.com) to manage your versions of Terrafom and Ruby.
+We recommend using [asdf](https://asdf-vm.com) to manage your versions of Terraform.
 
 ```
 brew install asdf
 ```
 
-Alternatively you can use [tfenv](https://github.com/tfutils/tfenv) and [rbenv](https://github.com/rbenv/rbenv)
+### Terraform
 
-### Terraform and Ruby
-
-The tests can simply run in CI. If you want to run the tests locally, you will need to install the version of terraform and Ruby specified in the `.tool-versions` file (or `.terraform-version`, `.ruby-version`). 
+You can also install the latest version of terraform version via brew.
 
 ```
-asdf plugin-add terraform https://github.com/asdf-community/asdf-hashicorp.git
-asdf plugin add ruby https://github.com/asdf-vm/asdf-ruby.git
-asdf install
+brew tap hashicorp/tap
+brew install hashicorp/tap/terraform
 ```
 
 #### Pre-commit hooks
+
 You should make sure that pre-commit hooks are installed to run the formater, linter, etc. Install and configure terraform [pre-commit hooks](https://github.com/antonbabenko/pre-commit-terraform) as follows:
 
-Install rependencies
-
 ```
-brew bundle install
+brew install pre-commit
 ```
 
 Install the pre-commit hook globally
@@ -156,27 +155,7 @@ to set and uset the `GOOGLE_APPLICATION_CREDENTIALS` variable.
 
 ### Testing
 
-This repository uses Kitchen-Terraform to test the terraform modules. In the [examples](/examples) directory you can find examples of how each module can be used. Those examples are fed to [Test Kitchen][https://kitchen.ci/]. To install test kitchen, first make sure you have Ruby and bundler installed.
-
-```
-gem install bundler
-```
-
-Then install the prerequisites for test kitchen.
-
-```
-bundle install
-```
-
-You'll need to add some common credentials and secret variables
-
-And now you're ready to run test kitchen. Test kitchen has a couple main commands:
-
-- `bundle exec kitchen create` initializes terraform.
-- `bundle exec kitchen converge` runs our terraform examples.
-- `bundle exec kitchen verify` runs our inspec scripts against a converged kitchen.
-- `bundle exec kitchen destroy` destroys infrastructure.
-- `bundle exec kitchen test` does all the above.
+The tests can be run locally with `terraform test` after running `terraform init`. You will need to supply `org_id`, `folder_id`, and `billing_account` variables through `terraform.tfvars` file. Please see `terraform.tfvars.example` file for an example.
 
 
 ### CI
@@ -186,4 +165,4 @@ This project has three workflows enabled:
 
 2. Realease Drafter: When merging to master, a release is drafted using the [Release-Drafter Action](https://github.com/marketplace/actions/release-drafter)
 
-3. `Kitchen test` runs on PR, merge to main and releases.
+3. `terraform test` runs on PR, merge to main and releases.

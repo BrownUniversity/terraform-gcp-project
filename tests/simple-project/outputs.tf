@@ -14,6 +14,17 @@ output "service_account_email" {
   value = module.simple-project.service_account_email
 }
 
+output "enabled_apis" {
+  value = module.simple-project.enabled_apis
+}
+
+output "roles" {
+  value = module.simple-project.roles
+}
+
+output "members" {
+  value = module.simple-project.members
+}
 
 output "activate_apis" {
   value = var.activate_apis

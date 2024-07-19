@@ -14,4 +14,5 @@ module "simple-project" {
   billing_account = var.billing_account
   activate_apis   = var.activate_apis
   folder_id       = var.folder_id
+  org_id          = var.org_id
 }
