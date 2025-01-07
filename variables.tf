@@ -65,3 +65,9 @@ variable "labels" {
     "managed_by"  = "terraform"
   }
 }
+
+variable "deletion_policy" {
+  type        = string
+  description = "Deletion policy for project."
+  default     = "DELETE"
+}

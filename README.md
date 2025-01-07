@@ -37,8 +37,8 @@ code by adding a `module` configuration and setting its `source` parameter to UR
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.9.0 |
-| <a name="requirement_google"></a> [google](#requirement\_google) | 5.38.0 |
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.10.0 |
+| <a name="requirement_google"></a> [google](#requirement\_google) | 6.15.0 |
 
 ## Providers
 
@@ -48,8 +48,8 @@ No providers.
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_project"></a> [project](#module\_project) | terraform-google-modules/project-factory/google | ~> 15.0 |
-| <a name="module_projects_iam_bindings"></a> [projects\_iam\_bindings](#module\_projects\_iam\_bindings) | terraform-google-modules/iam/google//modules/projects_iam | 7.7.1 |
+| <a name="module_project"></a> [project](#module\_project) | terraform-google-modules/project-factory/google | ~> 17.1 |
+| <a name="module_projects_iam_bindings"></a> [projects\_iam\_bindings](#module\_projects\_iam\_bindings) | terraform-google-modules/iam/google//modules/projects_iam | 8.0.0 |
 
 ## Resources
 
@@ -63,6 +63,7 @@ No resources.
 | <a name="input_auto_create_network"></a> [auto\_create\_network](#input\_auto\_create\_network) | Auto create default network. | `bool` | `false` | no |
 | <a name="input_billing_account"></a> [billing\_account](#input\_billing\_account) | The billing account to use | `string` | n/a | yes |
 | <a name="input_default_service_account"></a> [default\_service\_account](#input\_default\_service\_account) | Project default service account setting: can be one of delete, depriviledge, or keep. | `string` | `"delete"` | no |
+| <a name="input_deletion_policy"></a> [deletion\_policy](#input\_deletion\_policy) | Deletion policy for project. | `string` | `"DELETE"` | no |
 | <a name="input_disable_dependent_services"></a> [disable\_dependent\_services](#input\_disable\_dependent\_services) | Whether services that are enabled and which depend on this service should also be disabled when this service is destroyed. | `bool` | `true` | no |
 | <a name="input_folder_id"></a> [folder\_id](#input\_folder\_id) | The existing folder to use for the project | `string` | n/a | yes |
 | <a name="input_labels"></a> [labels](#input\_labels) | Map of labels for project. | `map(string)` | <pre>{<br>  "environment": "automation",<br>  "managed_by": "terraform"<br>}</pre> | no |
