@@ -38,3 +38,5 @@ override.tf.json
 # example: *tfplan*
 examples/simple-project/.terraform.lock.hcl
 Brewfile.lock.json
+
+terraform.lock.hcl
