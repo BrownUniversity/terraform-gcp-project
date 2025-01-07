@@ -13,6 +13,7 @@ module "project" {
   default_service_account    = var.default_service_account
   disable_dependent_services = var.disable_dependent_services
   labels                     = var.labels
+  deletion_policy            = var.deletion_policy
 }
 
 # -----------------------------
