@@ -37,8 +37,8 @@ code by adding a `module` configuration and setting its `source` parameter to UR
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.10.0 |
-| <a name="requirement_google"></a> [google](#requirement\_google) | 6.15.0 |
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.12.0 |
+| <a name="requirement_google"></a> [google](#requirement\_google) | 6.42.0 |
 
 ## Providers
 
@@ -66,7 +66,7 @@ No resources.
 | <a name="input_deletion_policy"></a> [deletion\_policy](#input\_deletion\_policy) | Deletion policy for project. | `string` | `"DELETE"` | no |
 | <a name="input_disable_dependent_services"></a> [disable\_dependent\_services](#input\_disable\_dependent\_services) | Whether services that are enabled and which depend on this service should also be disabled when this service is destroyed. | `bool` | `true` | no |
 | <a name="input_folder_id"></a> [folder\_id](#input\_folder\_id) | The existing folder to use for the project | `string` | n/a | yes |
-| <a name="input_labels"></a> [labels](#input\_labels) | Map of labels for project. | `map(string)` | <pre>{<br>  "environment": "automation",<br>  "managed_by": "terraform"<br>}</pre> | no |
+| <a name="input_labels"></a> [labels](#input\_labels) | Map of labels for project. | `map(string)` | <pre>{<br/>  "environment": "automation",<br/>  "managed_by": "terraform"<br/>}</pre> | no |
 | <a name="input_org_id"></a> [org\_id](#input\_org\_id) | Organization id. | `string` | `"brown.edu"` | no |
 | <a name="input_project_id"></a> [project\_id](#input\_project\_id) | Make project\_id a user-settable parameter | `string` | `""` | no |
 | <a name="input_project_name"></a> [project\_name](#input\_project\_name) | The human readable name for the project factory | `string` | n/a | yes |
